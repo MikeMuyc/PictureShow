@@ -67,7 +67,7 @@ export default {
 #picture {
   max-width: 1366px;
   margin: 0 auto;
-  padding-top: 50px;
+  padding: 50px 0;
 
   .aline {
     width: 100%;
@@ -102,6 +102,7 @@ export default {
 
   .content {
     display: flex;
+    padding: 0 50px;
     .leftMsg {
       margin-right: 20px;
       width: 45%;

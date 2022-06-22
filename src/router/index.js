@@ -19,7 +19,7 @@ export default new Router({
           children: [
             {
               path: "detail",
-              name: "组件详情",
+              name: "详情",
               component: () => import("@/views/content/detail.vue")
             },
             {

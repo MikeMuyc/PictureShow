@@ -10,11 +10,14 @@
       <img :src="afterImgSrc" draggable="false" alt="">
     </div>-->
     <div class="content">
-      <div class="leftMsg">
-        <div class="msgBox">{{imgItem.msg}}</div>
+      <div class="back" @click="$router.push({name:`详情`})">
+        <i class="iconfont iconjiantou"></i>
+        <i>返回</i>
       </div>
-      <div class="rightPic">
-        <img v-if="imgItem" :src="imgItem.src" alt="">
+      <div class="imgList">
+        <div class="imgBox" v-for="item in imgList">
+          <img :src="item.src" ondragstart="return false">
+        </div>
       </div>
     </div>
   </div>
@@ -27,16 +30,15 @@ export default {
   data (){
     return {
       afterImgSrc: '',
-      imgItem: null,
+      imgList: [
+        ...imgList,
+        ...imgList,
+        ...imgList,
+      ],
     }
   },
   mounted() {
-    const {id} = this.$route.query
-    if (id) {
-      this.imgItem = imgList.find((item) => item.id === id)
-    } else {
-      this.imgItem = null
-    }
+
   },
   methods: {
     uploadImg(e) {
@@ -67,7 +69,6 @@ export default {
 #picture {
   max-width: 1366px;
   margin: 0 auto;
-
   .aline {
     width: 100%;
     display: flex;
@@ -100,32 +101,39 @@ export default {
   }
 
   .content {
-    overflow: hidden;
     padding: 50px;
-    .leftMsg {
-      float: left;
-      margin-right: 20px;
-      width: calc(45% - 20px);
-      .msgBox {
-        padding: 10px;
-        border-radius: 4px;
-        background-color: #ededed;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    .back {
+      position: absolute;
+      left: 60px;
+      top: 20px;
+      color: #eeefee;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 18px;
+      .iconfont {
+        color: #eeefee;
+        font-size: 30px;
+        margin-right: 10px;
+        margin-top: 4px;
       }
     }
-    .rightPic{
-      float: left;
-      width: 55%;
-      padding: 10px;
-      background-color: #ddd;
-      border-radius: 4px;
+    .imgList{
       display: flex;
-      justify-content: center;
-      align-content: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .imgBox {
+      width: 100px;
+      height: 100px;
+      margin: 20px 40px;
+      cursor: pointer;
       img {
-        max-width: 100%;
-        //max-height: 100%;
-        vertical-align: middle;
-        user-select: none;
+        width: 100%;
+        height: 100%;
       }
     }
   }

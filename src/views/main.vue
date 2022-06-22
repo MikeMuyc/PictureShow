@@ -2,12 +2,12 @@
   <div id="Mybody">
     <div id="header">
       <div class="headCenter">
-        <div class="nav">
+        <!--<div class="nav">
           <div @click="navRouteTo(item.redirect)" v-for="item in navlist" :key="item.path" class="itemli">
             <div class="txt">{{ item.name }}</div>
           </div>
           <div class="whiteHover" :style="whiteStyle"></div>
-        </div>
+        </div>-->
       </div>
     </div>
     <vue-perfect-scrollbar :style="{height:bodyHeight + `px`, zIndex: 8}" ref="pfScroll" id="_scroll" :isBodyScroll="true">
@@ -85,6 +85,7 @@ export default {
     background-size: 1920px 60px;
     max-width: 1920px;
     width: 100%;
+    height: 100%;
     margin: 0 auto;
     position: relative;
     display: flex;

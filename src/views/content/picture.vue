@@ -67,7 +67,6 @@ export default {
 #picture {
   max-width: 1366px;
   margin: 0 auto;
-  padding: 50px 0;
 
   .aline {
     width: 100%;
@@ -101,17 +100,24 @@ export default {
   }
 
   .content {
-    display: flex;
-    padding: 0 50px;
+    overflow: hidden;
+    padding: 50px;
     .leftMsg {
+      float: left;
       margin-right: 20px;
-      width: 45%;
+      width: calc(45% - 20px);
+      .msgBox {
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #ededed;
+      }
     }
     .rightPic{
+      float: left;
       width: 55%;
       padding: 10px;
-      background-color: #8c939d;
-      border-radius: 2px;
+      background-color: #ddd;
+      border-radius: 4px;
       display: flex;
       justify-content: center;
       align-content: center;
@@ -119,6 +125,7 @@ export default {
         max-width: 100%;
         //max-height: 100%;
         vertical-align: middle;
+        user-select: none;
       }
     }
   }
